@@ -22,8 +22,8 @@ int main(int argc, char **argv) {
 	 *                     Setup Window
 	   ====================================================== */
     // Window Size
-    int windowWidth  = 1600;
-    int windowHeight = 800;
+    int windowWidth  = 1920;
+    int windowHeight = 1080;
 
 	// Init GLFW
 	std::shared_ptr<GLPL::IWindow> window = std::shared_ptr<GLPL::IWindow>(new GLPL::Window(windowWidth, windowHeight,  false, false));

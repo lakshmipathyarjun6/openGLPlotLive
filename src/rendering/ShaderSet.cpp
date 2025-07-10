@@ -52,6 +52,13 @@ namespace GLPL {
         if (h.good()) {
             return windowsFontPath;
         }
+        // Check for fonts in Mac
+        const GLchar* macFontPath = "/Library/Fonts/Arial Unicode.ttf";
+        std::ifstream m(macFontPath);
+        if (m.good()) {
+            return macFontPath;
+        }
+
 
         std::cout << "No Fonts Found! Try adding a path to determineFontPath in ShaderSet.h." << std::endl;
 

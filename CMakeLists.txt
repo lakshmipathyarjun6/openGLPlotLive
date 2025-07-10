@@ -10,46 +10,21 @@ add_compile_options(-gdwarf-4)
 # Set OpenGL Policy
 set(OpenGL_GL_PREFERENCE "GLVND")
 
-# Add c++14 flag to compiler
-set(CMAKE_CXX_STANDARD 14)
+# Add c++20 flag to compiler
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
 
-# Add Cmake Module Path
-set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/")
+FIND_PACKAGE(GLM REQUIRED)
+FIND_PATH(GLM_INCLUDE_DIR "glm/glm.hpp")
 
-# Windows specific setup
-if(WIN32)
-    message(${CMAKE_SOURCE_DIR}/include/)
-    include_directories("${CMAKE_SOURCE_DIR}/include")
-    set(GLM_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/include/glm/glm.h")
-    set(GLFW3_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/include/GLFW/glfw3.h")
-    set(GLFW3_LIBRARY "${CMAKE_SOURCE_DIR}/Lib/libglfw3.a")
-    set(FREETYPE_LIBRARY "${CMAKE_SOURCE_DIR}/Lib/freetype.a")
-endif(WIN32)
+FIND_PACKAGE(GLFW3 REQUIRED)
+FIND_PATH(GLFW3_INCLUDE_DIR "GLFW/glfw3.h")
 
-# Find Packages
-# GLM
-find_package(GLM REQUIRED)
-message(STATUS "GLM found: ${GLM_INCLUDE_DIR}")
-# FREETYPE
-find_package(FREETYPE REQUIRED)
-MESSAGE(STATUS "Found FREETYPE: ${FREETYPE_LIBRARY}")
-# GLFW3
-find_package(GLFW3 REQUIRED)
-message(STATUS "Found Glfw3: ${GLFW3_LIBRARY}")
-# OpenGL
-find_package(OpenGL REQUIRED)
-add_definitions(${OPENGL_DEFINITIONS})
-# X11
-find_package(X11 REQUIRED)
+FIND_PACKAGE(OpenGL REQUIRED)
 
+FIND_PACKAGE(FREETYPE REQUIRED)
 
-# Set libraries
-if(WIN32)
-    set(LIBS ${FREETYPE_LIBRARY} ${GLFW3_LIBRARY} z opengl32 )
-elseif(UNIX)
-    set(LIBS ${GLFW3_LIBRARY} X11 Xrandr Xinerama Xi Xxf86vm Xcursor dl pthread freetype GL)
-endif(WIN32)
+set(LIBS ${FREETYPE_LIBRARY} glfw)
 
 # Stop conflicting order of GLAD and GLFW
 add_definitions(-DGLFW_INCLUDE_NONE)
@@ -57,6 +32,3 @@ add_definitions(-DGLFW_INCLUDE_NONE)
 # Add subdirectories
 add_subdirectory(src)
 add_subdirectory(apps)
-add_subdirectory(docs)
-add_subdirectory(tests)
-add_subdirectory(third_party/google-test)
