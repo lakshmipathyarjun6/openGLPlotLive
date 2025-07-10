@@ -11,6 +11,9 @@ add_library(${PROJECT_NAME} "")
 target_sources(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/includes/glad.c)
 target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC ${PROJECT_SOURCE_DIR}/includes)
 
+# Link libraries
+target_link_libraries(${PROJECT_NAME} PUBLIC ${FREETYPE_LIBRARY} glfw)
+
 # Add subdirectories
 add_subdirectory(axes)
 add_subdirectory(dataTypes)
