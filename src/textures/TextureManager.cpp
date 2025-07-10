@@ -70,7 +70,7 @@ namespace GLPL {
 
     std::vector<std::string> TextureManager::getFilesInDir() {
         std::vector<std::string> files;
-        DIR *dir = opendir("textures");
+        DIR *dir = opendir("bin/textures");
         if (!dir) {
             std::cout << "Texture directory does not exist!" << std::endl;
         } else {
@@ -94,7 +94,7 @@ namespace GLPL {
         for(const auto& file : files) {
             if (TextureManager::hasExt(file, ".png")) {
                 std::string noExt = file.substr(0, file.size()-4);
-                std::string path = "textures/" + file;
+                std::string path = "bin/textures/" + file;
                 TextureManager::loadTexture(noExt, path.c_str());
             }
         }
