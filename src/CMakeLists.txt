@@ -8,8 +8,8 @@ project(openGLPlotLive)
 add_library(${PROJECT_NAME} "")
 
 # Glad
-target_sources(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/include/glad.c)
-target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_sources(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/includes/glad.c)
+target_include_directories(${PROJECT_NAME} SYSTEM PUBLIC ${PROJECT_SOURCE_DIR}/includes)
 
 # Add subdirectories
 add_subdirectory(axes)
