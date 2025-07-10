@@ -9,21 +9,22 @@
 #include <memory>
 
 // Project Includes
-#include "shader.h"
 #include "../texts/CharacterLoader.h"
 #include "../textures/TextureManager.h"
+#include "shader.h"
 
-
-namespace GLPL {
+namespace GLPL
+{
 
     // Contains the shaders for plotting
-    class ShaderSet {
+    class ShaderSet
+    {
     public:
         // Constructor
         ShaderSet();
 
         // Functions
-        const GLchar* getFontPath();
+        const GLchar *getFontPath();
         float getXDpiScaling();
         float getYDpiScaling();
         std::shared_ptr<Shader> getTextShader();
@@ -47,18 +48,31 @@ namespace GLPL {
         float yScaleDpi = 1;
 
         // Shaders
-        Shader textShader = Shader("Shaders/font.vs", "Shaders/font.frag");
-        Shader plot2dShader = Shader("Shaders/plot2d.vs","Shaders/plot2d.frag");
-        Shader plot2dShaderLogx = Shader("Shaders/plot2dLogx.vs","Shaders/plot2d.frag");
-        Shader plot2dShaderLogy = Shader("Shaders/plot2dLogy.vs","Shaders/plot2d.frag");
-        Shader plot2dShaderLogxLogy = Shader("Shaders/plot2dLogxLogy.vs","Shaders/plot2d.frag");
-        Shader scatter2dShader = Shader("Shaders/scatter2d.vs","Shaders/scatter2d.frag");
-        Shader scatter2dLogxShader = Shader("Shaders/scatter2dLogx.vs","Shaders/scatter2d.frag");
-        Shader scatter2dLogyShader = Shader("Shaders/scatter2dLogy.vs","Shaders/scatter2d.frag");
-        Shader scatter2dLogxLogyShader = Shader("Shaders/scatter2dLogxLogy.vs","Shaders/scatter2d.frag");
-        Shader textureShader = Shader("Shaders/texture.vs", "Shaders/texture.frag");
-        Shader plotPosNeg2DShader = Shader("Shaders/plotPosNeg2d.vs", "Shaders/plotPosNeg2d.frag");
-        Shader plotTransparent2dShader = Shader("Shaders/plotTransparent2d.vs", "Shaders/plotTransparent2d.frag");
+        Shader textShader =
+            Shader("bin/Shaders/font.vs", "bin/Shaders/font.frag");
+        Shader plot2dShader =
+            Shader("bin/Shaders/plot2d.vs", "bin/Shaders/plot2d.frag");
+        Shader plot2dShaderLogx =
+            Shader("bin/Shaders/plot2dLogx.vs", "bin/Shaders/plot2d.frag");
+        Shader plot2dShaderLogy =
+            Shader("bin/Shaders/plot2dLogy.vs", "bin/Shaders/plot2d.frag");
+        Shader plot2dShaderLogxLogy =
+            Shader("bin/Shaders/plot2dLogxLogy.vs", "bin/Shaders/plot2d.frag");
+        Shader scatter2dShader =
+            Shader("bin/Shaders/scatter2d.vs", "bin/Shaders/scatter2d.frag");
+        Shader scatter2dLogxShader = Shader("bin/Shaders/scatter2dLogx.vs",
+                                            "bin/Shaders/scatter2d.frag");
+        Shader scatter2dLogyShader = Shader("bin/Shaders/scatter2dLogy.vs",
+                                            "bin/Shaders/scatter2d.frag");
+        Shader scatter2dLogxLogyShader = Shader(
+            "bin/Shaders/scatter2dLogxLogy.vs", "bin/Shaders/scatter2d.frag");
+        Shader textureShader =
+            Shader("bin/Shaders/texture.vs", "bin/Shaders/texture.frag");
+        Shader plotPosNeg2DShader = Shader("bin/Shaders/plotPosNeg2d.vs",
+                                           "bin/Shaders/plotPosNeg2d.frag");
+        Shader plotTransparent2dShader =
+            Shader("bin/Shaders/plotTransparent2d.vs",
+                   "bin/Shaders/plotTransparent2d.frag");
 
         // shared_ptr
         std::shared_ptr<Shader> textShaderPt;
@@ -75,15 +89,12 @@ namespace GLPL {
         std::shared_ptr<Shader> plotTransparent2dShaderPt;
         std::shared_ptr<TextureManager> textureMangerPt;
 
-
         // Text
         std::shared_ptr<CharacterLoader> characterLoaderPt;
         // Textures
         TextureManager textureManager = TextureManager();
-
     };
 
-}
+} // namespace GLPL
 
-
-#endif //OPENGLPLOTLIVE_PROJ_SHADERSET_H
+#endif // OPENGLPLOTLIVE_PROJ_SHADERSET_H

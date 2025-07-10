@@ -264,10 +264,8 @@ There are a number of different make targets.
 | Target         | Description                                     | Output (build directory)                                |
 | -------------- | ----------------------------------------------- | ------------------------------------------------------- |
 | all            | Make all the targets below                      |                                                         |
-| examplePlot    | Make the example plot window                    | apps/examplePlot                                        |
+| examplePlot    | Make the example plot window                    | bin/examplePlot                                         |
 | openGLPlotLive | Make the shared library libopenGLPlotLive.so    | src/libOpenGLPlotLive.so                                |
-| docs           | Makes both the doxygen and sphinx documentation | docs/doxygen/html/index.html,<br>docs/sphinx/index.html |
-| tests          | Make the test suite runner using gtest          | tests/openGLPlotLive-proj_tests                         |
 
 ## Compiling an Eclipse Project
 To generate an Eclipse project, from the root directory,
@@ -282,14 +280,14 @@ Then import the project into Eclipse using File >> Import >> General >> Existing
 # Running an Example
 An example binary is created, examplePlot. To run this
 ```
-cd build/apps
-./examplePlot
+cd build/
+./bin/examplePlot
 ```
 
 A secondary example contained in the apps directory, movingTimeframe, provides a method of displaying a rolling window by adjusting the x axes scaling, while allowing the y axes to be autoscaled.
 ```
-cd build/apps
-./movingTimeframe
+cd build/
+./bin/movingTimeframe
 ```
 
 
