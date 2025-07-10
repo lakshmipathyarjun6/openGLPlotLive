@@ -7,7 +7,7 @@
 
 // Project Includes
 #include "IScatterPlot2D.h"
-#include "../src/util/util.h"
+#include "../util/util.h"
 
 
 namespace GLPL {
