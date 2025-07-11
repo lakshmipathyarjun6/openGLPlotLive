@@ -56,7 +56,7 @@ namespace GLPL {
         glfwWindowHint(GLFW_SAMPLES, 4);
 
         // Screen Properties
-        window = glfwCreateWindow(getWidthPx(),getHeightPx(),"openGLPlotLive",nullptr,nullptr);
+        window = glfwCreateWindow(getWidthPx(),getHeightPx(),"Live Plots",nullptr,nullptr);
         glfwMakeContextCurrent(window);
 
         // Initialise GLAD
